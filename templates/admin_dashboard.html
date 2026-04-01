@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}管理后台 - Flask登录系统{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>📊 管理员后台</h1>
+        <p>系统概览与用户管理</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-content">
+                <h3>普通用户</h3>
+                <p class="stat-number">{{ user_count }}</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🔐</div>
+            <div class="stat-content">
+                <h3>管理员</h3>
+                <p class="stat-number">{{ admin_count }}</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📈</div>
+            <div class="stat-content">
+                <h3>总用户数</h3>
+                <p class="stat-number">{{ total_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <div class="section-header">
+            <h2>🎯 快速操作</h2>
+        </div>
+        <div class="quick-actions">
+            <a href="{{ url_for('admin.users') }}" class="action-btn">
+                <span>📋</span>
+                <p>查看用户列表</p>
+            </a>
+            <a href="{{ url_for('admin.add_user') }}" class="action-btn">
+                <span>➕</span>
+                <p>添加新用户</p>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

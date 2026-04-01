@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}登录 - Flask登录系统{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <h1>🔐 登录系统</h1>
+            <p>用户和管理员统一入口</p>
+        </div>
+
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <label for="username">👤 用户名</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="请输入用户名" 
+                    required
+                    autofocus
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">🔑 密码</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="请输入密码" 
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">登录</button>
+        </form>
+
+        <div class="login-footer">
+            <h3>📋 测试账号</h3>
+            <div class="test-accounts">
+                <div class="account-item">
+                    <strong>👨‍💼 管理员</strong>
+                    <p>用户名: <code>admin</code></p>
+                    <p>密码: <code>admin123</code></p>
+                </div>
+                <div class="account-item">
+                    <strong>👤 普通用户</strong>
+                    <p>用户名: <code>user</code></p>
+                    <p>密码: <code>user123</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 添加演示账号快速填充
+    document.addEventListener('DOMContentLoaded', function() {
+        const accounts = {
+            'admin': 'admin123',
+            'user': 'user123'
+        };
+        
+        // 如果需要，可以在这里添加快速登录功能
+    });
+</script>
+{% endblock %}
