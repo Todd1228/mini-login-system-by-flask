@@ -260,6 +260,45 @@ FLASK_PORT=5000  # 修改为其他端口，如8000
 
 ---
 
+## 🐳 Docker 部署（推荐）
+
+### 1. 本地构建镜像
+```bash
+docker build -t flask-yolo-app .
+```
+
+### 2. 直接运行容器
+```bash
+docker run -d --name flask-yolo -p 5000:5000 \
+  -e FLASK_ENV=production \
+  -e FLASK_DEBUG=False \
+  -e FLASK_PORT=5000 \
+  flask-yolo-app
+```
+
+### 3. 使用 docker-compose（更简单）
+```bash
+docker compose up -d --build
+```
+
+### 4. 检查服务
+在浏览器中访问：
+- http://localhost:5000
+
+### 5. 停止容器
+```bash
+docker compose down
+```
+
+### 6. 默认账户（与本地一致）
+- 管理员: admin / admin123
+- 普通用户: user / user123
+
+> 💡 如果要运行YOLOv8模型（带`yolov8n.pt`），确保镜像里包含该文件（本仓库已包含）或在第一次运行时自动下载。
+
+
+---
+
 ## 📚 技术栈
 
 ### 核心框架
